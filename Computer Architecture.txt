@@ -1,0 +1,43 @@
+
+# Initialize memory
+memory = {
+    100: 12,
+    104: 8
+}
+
+# Initialize registers
+registers = {
+    "R1": 0,
+    "R2": 0,
+    "R3": 0
+}
+
+# Instruction 1: LOAD R1, 100
+registers["R1"] = memory[100]
+print("LOAD R1, 100")
+print("R1 =", registers["R1"])
+
+# Instruction 2: LOAD R2, 104
+registers["R2"] = memory[104]
+print("\nLOAD R2, 104")
+print("R2 =", registers["R2"])
+
+# Instruction 3: ADD R3, R1, R2
+registers["R3"] = registers["R1"] + registers["R2"]
+print("\nADD R3, R1, R2")
+print("R3 =", registers["R3"])
+
+# Instruction 4: STORE R3, 108
+memory[108] = registers["R3"]
+print("\nSTORE R3, 108")
+print("Memory[108] =", memory[108])
+
+# Display final register contents
+print("\nFinal Register Contents:")
+print("R1 =", registers["R1"])
+print("R2 =", registers["R2"])
+print("R3 =", registers["R3"])
+
+# Display final memory contents
+print("\nFinal Memory Contents:")
+print(memory)

@@ -1,0 +1,46 @@
+
+# Number of cache lines
+cache_size = 8
+
+# Initialize cache with empty values
+cache = [None] * cache_size
+
+# Memory block sequence
+blocks = [3, 11, 3, 19, 11, 27, 3]
+
+# Initialize counters
+hits = 0
+misses = 0
+
+print("Block\tLine\tStatus\tCache")
+
+# Access each memory block
+for block in blocks:
+
+    # Calculate cache line
+    line = block % cache_size
+
+    # Check HIT or MISS
+    if cache[line] == block:
+        status = "HIT"
+        hits += 1
+
+    else:
+        status = "MISS"
+        misses += 1
+
+        # Store block in cache
+        cache[line] = block
+
+    # Display result
+    print(block, "\t", line, "\t", status, "\t", cache)
+
+# Calculate hit ratio
+total = hits + misses
+hit_ratio = hits / total
+
+# Display final results
+print("\nTotal Hits:", hits)
+print("Total Misses:", misses)
+print("Hit Ratio:", hit_ratio)
+print("Hit Ratio Percentage:", hit_ratio * 100, "%")
